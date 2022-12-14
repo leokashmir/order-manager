@@ -57,7 +57,7 @@ API Rest contendo operações e fluxo para gerenciar pedidos.
 |  14-12-22  | Add - Service-Email  |
 |  14-12-22  | Add - Pipe-line Heroku  |
 |  14-12-22  | Add - Entidades  |
-|  14-12-22  | Add - Estrutura de Services e Repositorys  |
+|  14-12-22  | Add - Estrutura de Service e Repository  |
 
 
 
