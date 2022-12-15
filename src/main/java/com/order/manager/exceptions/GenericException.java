@@ -1,7 +1,7 @@
 package com.order.manager.exceptions;
 
 
-public class GenericException extends Exception {
+public class GenericException extends RuntimeException {
 
 
 	private static final long serialVersionUID = -7082212867266961646L;
