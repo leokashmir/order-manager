@@ -8,17 +8,29 @@ server:
 application:
   version: '@project.version@'
 
-##### Email #####
-
 spring:
   mail:
-    host: smtp.gmail.com
-    port: 587
-    username :
-    password:
+    host: ${EMAIL_SMTP}
+    port: ${EMAIL_PORT}
+    username: ${EMAIL_USER}
+    password: ${EMAIL_PASS}
     properties:
       mail:
         smtp:
           auth: true
           starttls:
             enable: true
+  jpa:
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+      format_sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+  datasource:
+    platform: postgres
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+    driverClassName: org.postgresql.Driver
