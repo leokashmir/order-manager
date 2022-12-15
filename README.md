@@ -50,14 +50,7 @@ API Rest contendo operações e fluxo para gerenciar pedidos.
 
 **Time Line**
 
-| Data    | Descrição |
-| -----------|---------|
-|  14-12-22  | Add - Mock EndPoints   |
-|  14-12-22  | Add - Swagger  |
-|  14-12-22  | Add - Service-Email  |
-|  14-12-22  | Add - Pipe-line Heroku  |
-|  14-12-22  | Add - Entidades  |
-|  14-12-22  | Add - Estrutura de Service e Repository  |
+
 
 
 
