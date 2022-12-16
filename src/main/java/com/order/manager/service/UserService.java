@@ -10,9 +10,9 @@ import java.util.List;
 public interface UserService {
 
 
-    UserDTO saveItem(UserRequest request);
-    UserDTO updateItem(UserDTO request);
-    void deleteItem(Long id);
-    List<UserDTO> listItem();
-    ItemDTO getItem(Long id);
+    UserDTO saveUser(UserRequest request);
+    UserDTO updateUser(UserDTO request);
+    void deleteUser(Long id);
+    List<UserDTO> listUser();
+    UserDTO getUser(Long id);
 }

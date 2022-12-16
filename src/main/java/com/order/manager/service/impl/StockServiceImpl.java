@@ -7,28 +7,29 @@ import com.order.manager.service.StockService;
 import java.util.List;
 
 public class StockServiceImpl implements StockService {
+
     @Override
-    public StockDTO saveItem(StockRequest request) {
+    public StockDTO saveStock(StockRequest request) {
         return null;
     }
 
     @Override
-    public StockDTO updateItem(StockDTO request) {
+    public StockDTO updateStock(StockDTO request) {
         return null;
     }
 
     @Override
-    public void deleteItem(Long id) {
+    public void deleteStock(Long id) {
 
     }
 
     @Override
-    public List<StockDTO> listItem() {
+    public List<StockDTO> listStock() {
         return null;
     }
 
     @Override
-    public StockDTO getItem(Long id) {
+    public StockDTO getStock(Long id) {
         return null;
     }
 }

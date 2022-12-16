@@ -10,9 +10,9 @@ import java.util.List;
 public interface OrderService {
 
 
-    OrderDTO saveItem(OrderRequest request);
-    OrderDTO updateItem(OrderDTO request);
-    void deleteItem(Long id);
-    List<OrderDTO> listItem();
-    OrderDTO getItem(Long id);
+    OrderDTO saveOrder(OrderRequest request);
+    OrderDTO updateOrder(OrderDTO request);
+    void deleteOrder(Long id);
+    List<OrderDTO> listOrder();
+    OrderDTO getOrder(Long id);
 }
