@@ -6,13 +6,14 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.Set;
 
 @Getter
 @Setter
 @Entity
-@Table(name ="order")
+@Table(name ="orders")
 public class Order {
 
     @Id
@@ -21,7 +22,7 @@ public class Order {
     private Long id;
 
     @Column(name = "quantity")
-    private int quantity;
+    private Long quantity;
 
     @Column(name = "creationDate")
     private LocalDate creationDate;
@@ -32,6 +33,6 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "id_user")
-    @NotBlank(message = "Campo 'user' deve ser Preenchido.")
+    @NotNull(message = "Campo 'user' deve ser Preenchido.")
     private User user;
 }

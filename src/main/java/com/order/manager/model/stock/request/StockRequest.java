@@ -13,9 +13,9 @@ import java.time.LocalDate;
 public class StockRequest {
 
     @NotBlank(message = "Campo 'item' deve ser Preenchido.")
-    private Item item;
+    private Long item;
     @NotNull(message = "Campo 'quantity' deve ser Preenchido.")
-    private int quantity;
+    private Long quantity;
 
 }
 

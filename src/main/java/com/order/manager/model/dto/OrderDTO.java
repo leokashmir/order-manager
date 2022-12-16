@@ -21,7 +21,7 @@ public class OrderDTO {
     private Item item;
 
     @NotNull(message = "Campo 'quantity' deve ser Preenchido.")
-    private int quantity;
+    private Long quantity;
 
 
     private LocalDate creationDate;

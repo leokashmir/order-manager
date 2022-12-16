@@ -7,9 +7,11 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Getter @Setter
 @Entity
+@NoArgsConstructor
 @Table(name ="item")
 public class Item {
 
@@ -19,8 +21,11 @@ public class Item {
     private Long id;
 
     @Column(name = "name")
-    @NotBlank(message = "Campo 'name' deve ser Preenchido.")
+    @NotNull(message = "Campo 'name' deve ser Preenchido.")
     private String name;
 
 
+    public Item(Long id) {
+        this.id = id;
+    }
 }

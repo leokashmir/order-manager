@@ -2,15 +2,18 @@ package com.order.manager.model.entity;
 
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
 @Entity
-@Table(name ="user")
+@NoArgsConstructor
+@Table(name ="users")
 public class User {
 
     @Id
@@ -19,11 +22,16 @@ public class User {
     private Long id;
 
     @Column(name = "name")
-    @NotBlank(message = "Campo 'Name' deve ser Preenchido.")
+    @NotNull(message = "Campo 'Name' deve ser Preenchido.")
     private String name;
 
     @Column(name = "email")
-    @NotBlank(message = "Campo 'email' deve ser Preenchido.")
+    @NotNull(message = "Campo 'email' deve ser Preenchido.")
     private String email;
+
+
+    public User (Long id){
+        this.id = id;
+    }
 
 }
