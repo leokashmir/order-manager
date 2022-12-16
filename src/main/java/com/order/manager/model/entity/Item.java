@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Getter @Setter
 @Entity
@@ -18,6 +19,7 @@ public class Item {
     private Long id;
 
     @Column(name = "name")
+    @NotBlank(message = "Campo 'name' deve ser Preenchido.")
     private String name;
 
 

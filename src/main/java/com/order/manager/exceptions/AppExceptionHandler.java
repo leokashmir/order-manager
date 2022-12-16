@@ -3,11 +3,16 @@ package com.order.manager.exceptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.context.request.WebRequest;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 @ControllerAdvice
@@ -48,5 +53,21 @@ public class AppExceptionHandler {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exceptionHandleResponseBuilder.getExceptionHandleResponse(HttpStatus.BAD_REQUEST.value(), exception.getMessage()));
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exceptionHandleResponseBuilder.getExceptionHandleResponse(HttpStatus.BAD_REQUEST.value(), exception.getMessage()));
+    }
+
+    /**
+     * BeanValidator customização.
+     * String fieldName = ((FieldError) error).getField();
+     * String mens = error.getDefaultMessage()
+     */
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ExceptionHandleResponse> handleValidationExceptions(MethodArgumentNotValidException ex) {
+    StringBuilder errors = new StringBuilder();
+        ex.getBindingResult().getAllErrors().forEach((error) ->
+            errors.append(error.getDefaultMessage()).append(" ")
+        );
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exceptionHandleResponseBuilder.getExceptionHandleResponse(HttpStatus.BAD_REQUEST.value(), errors.toString()));
     }
 }

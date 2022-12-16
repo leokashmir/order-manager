@@ -50,6 +50,18 @@ API Rest contendo operações e fluxo para gerenciar pedidos.
 |  DELETE  |  /v1/order/cancel/{id}     | Cancela um Pedido. |
 |  PUT  |  /v1/order/update     | Atualiza um Pedido. |
 
+
+## Stock Manage
+
+| Metodo  |  End Point  | Descrição |
+| ------------| ---------|---------|
+|  POST  | /v1/stock/add     | Adiciona um item no Stock  |
+|  GET  |  /v1/stock/find/{id}     | Obtém a informação de um item especifico |
+|  GET  |  /v1/stock/list   | Obtém a lista dos Items em Stock |
+|  DELETE  |  /v1/stock/delete/{id}     | Exclui um Item do Stock. |
+|  PUT  |  /v1/stock/update     | Atualiza um item no Stock. |
+
+
 ## Documentação / Swagger
 
  
@@ -74,7 +86,8 @@ API Rest contendo operações e fluxo para gerenciar pedidos.
 | ------------| ---------|
 |  1.0.0  |  API - Item Manager     |
 |  1.1.0  |  API - User Manager     |Cria um item  |
-
+|  1.2.0  |  API - Order Manager     |C
+|  1.3.0  |  API - Stock Manager     |C
 
 
 

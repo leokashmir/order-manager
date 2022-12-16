@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j
@@ -25,12 +26,12 @@ public class UserController {
     private UserService service;
 
     @PostMapping("/create")
-    public ResponseEntity<UserDTO> createUser(@RequestBody UserRequest request) {
+    public ResponseEntity<UserDTO> createUser(@Valid @RequestBody UserRequest request) {
         return  ResponseEntity.ok(service.saveUser(request));
     }
 
     @PutMapping("/update")
-    public ResponseEntity<UserDTO> updateUser(@RequestBody UserDTO request) {
+    public ResponseEntity<UserDTO> updateUser(@Valid @RequestBody UserDTO request) {
         return  ResponseEntity.ok(service.updateUser(request));
     }
 

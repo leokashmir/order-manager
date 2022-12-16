@@ -1,11 +1,17 @@
 package com.order.manager.controller;
 
+import com.order.manager.model.dto.OrderDTO;
+import com.order.manager.model.order.request.OrderRequest;
 import com.order.manager.service.impl.OrderServiceImpl;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -14,29 +20,32 @@ import org.springframework.web.bind.annotation.*;
 public class OrderManagerController {
 
     @Autowired
-    private OrderServiceImpl orderService;
+    private OrderServiceImpl service;
 
     @PostMapping("/create")
-    public ResponseEntity<String> createOrder() { return  ResponseEntity.ok("Create"); }
+    public ResponseEntity<OrderDTO> createOrder(@Valid @RequestBody OrderRequest request) {
+        return  ResponseEntity.ok(service.saveOrder(request));
+    }
 
     @PutMapping("/update")
-    public ResponseEntity<String> updateOrder() {
-        return  ResponseEntity.ok("Update");
+    public ResponseEntity<OrderDTO> updateOrder(@Valid @RequestBody OrderDTO request) {
+        return  ResponseEntity.ok(service.updateOrder(request));
     }
 
-    @DeleteMapping("/cancel")
-    public ResponseEntity<String> cancelOrder() {
-        return  ResponseEntity.ok("Cancel");
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> cancelOrder(@PathVariable("id")  Long idOrder) {
+        service.deleteOrder(idOrder);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping("/find")
-    public ResponseEntity<String> findOrder() {
-        return  ResponseEntity.ok("find");
+    @GetMapping("/find/{id}")
+    public ResponseEntity<OrderDTO> findOrder(@PathVariable("id")  Long idOrder) {
+        return  ResponseEntity.ok(service.getOrder(idOrder));
     }
 
     @GetMapping("/list")
-    public ResponseEntity<String> listOrder() {
-        return  ResponseEntity.ok("list");
+    public ResponseEntity<List<OrderDTO>> listOrder() {
+        return new ResponseEntity<List<OrderDTO>>(service.listOrder(), HttpStatus.OK);
     }
 
 }
