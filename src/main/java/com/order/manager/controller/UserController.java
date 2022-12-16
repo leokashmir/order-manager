@@ -1,20 +1,17 @@
 package com.order.manager.controller;
 
-import com.order.manager.service.impl.OrderServiceImpl;
+
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
-@RequestMapping("/v1/order")
-@Tag(name = "Order Manage", description = " API Version 1.0")
-public class OrderManagerController {
+@RequestMapping("/v1/user")
+@Tag(name = "User Manage", description = "API Version 1.0")
+public class UserController {
 
-    @Autowired
-    private OrderServiceImpl orderService;
 
     @PostMapping("/create")
     public ResponseEntity<String> createOrder() { return  ResponseEntity.ok("Create"); }
@@ -38,5 +35,4 @@ public class OrderManagerController {
     public ResponseEntity<String> listOrder() {
         return  ResponseEntity.ok("list");
     }
-
 }
