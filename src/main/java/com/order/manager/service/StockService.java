@@ -7,10 +7,10 @@ import java.util.List;
 
 public interface StockService {
 
-    StockDTO saveItem(StockRequest request);
-    StockDTO updateItem(StockDTO request);
-    void deleteItem(Long id);
-    List<StockDTO> listItem();
-    StockDTO getItem(Long id);
+    StockDTO saveStock(StockRequest request);
+    StockDTO updateStock(StockDTO request);
+    void deleteStock(Long id);
+    List<StockDTO> listStock();
+    StockDTO getStock(Long id);
 
 }

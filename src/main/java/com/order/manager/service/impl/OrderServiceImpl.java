@@ -17,27 +17,27 @@ public class OrderServiceImpl implements OrderService {
 
 
     @Override
-    public OrderDTO saveItem(OrderRequest request) {
+    public OrderDTO saveOrder(OrderRequest request) {
         return null;
     }
 
     @Override
-    public OrderDTO updateItem(OrderDTO request) {
+    public OrderDTO updateOrder(OrderDTO request) {
         return null;
     }
 
     @Override
-    public void deleteItem(Long id) {
+    public void deleteOrder(Long id) {
 
     }
 
     @Override
-    public List<OrderDTO> listItem() {
+    public List<OrderDTO> listOrder() {
         return null;
     }
 
     @Override
-    public OrderDTO getItem(Long id) {
+    public OrderDTO getOrder(Long id) {
         return null;
     }
 }

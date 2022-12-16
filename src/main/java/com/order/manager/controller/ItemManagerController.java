@@ -23,7 +23,7 @@ public class ItemManagerController {
     @Autowired
     private ItemService service;
 
-    @PostMapping("/add")
+    @PostMapping("/create")
     public ResponseEntity<ItemDTO> insertItem(@RequestBody ItemRequest request) {
         return  ResponseEntity.ok(service.saveItem(request));
     }

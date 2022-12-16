@@ -1,10 +1,19 @@
 package com.order.manager.controller;
 
 
+import com.order.manager.model.dto.ItemDTO;
+import com.order.manager.model.dto.UserDTO;
+import com.order.manager.model.item.request.ItemRequest;
+import com.order.manager.model.user.request.UserRequest;
+import com.order.manager.service.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -12,27 +21,32 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "User Manage", description = "API Version 1.0")
 public class UserController {
 
+    @Autowired
+    private UserService service;
 
     @PostMapping("/create")
-    public ResponseEntity<String> createOrder() { return  ResponseEntity.ok("Create"); }
+    public ResponseEntity<UserDTO> createUser(@RequestBody UserRequest request) {
+        return  ResponseEntity.ok(service.saveUser(request));
+    }
 
     @PutMapping("/update")
-    public ResponseEntity<String> updateOrder() {
-        return  ResponseEntity.ok("Update");
+    public ResponseEntity<UserDTO> updateUser(@RequestBody UserDTO request) {
+        return  ResponseEntity.ok(service.updateUser(request));
     }
 
-    @DeleteMapping("/cancel")
-    public ResponseEntity<String> cancelOrder() {
-        return  ResponseEntity.ok("Cancel");
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> cancelUser(@PathVariable("id")  Long idUser) {
+        service.deleteUser(idUser);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping("/find")
-    public ResponseEntity<String> findOrder() {
-        return  ResponseEntity.ok("find");
+    @GetMapping("/find/{id}")
+    public ResponseEntity<UserDTO> findUser(@PathVariable("id")  Long idUser) {
+        return  ResponseEntity.ok(service.getUser(idUser));
     }
 
     @GetMapping("/list")
-    public ResponseEntity<String> listOrder() {
-        return  ResponseEntity.ok("list");
+    public ResponseEntity<List<UserDTO>> listUser() {
+        return new ResponseEntity<List<UserDTO>>(service.listUser(), HttpStatus.OK);
     }
 }
