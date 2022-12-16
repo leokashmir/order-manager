@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Getter
@@ -20,14 +21,14 @@ public class StockMovement {
     private Long id;
 
     @Column(name = "quantity")
-    @NotBlank(message = "Campo 'quantity' deve ser Preenchido.")
-    private int quantity;
+    @NotNull(message = "Campo 'quantity' deve ser Preenchido.")
+    private Long quantity;
 
     @Column(name = "creationDate")
     private LocalDate creationDate;
 
     @OneToOne
     @JoinColumn(name ="id_item", referencedColumnName = "id")
-    @NotBlank(message = "Campo 'item' deve ser Preenchido.")
+    @NotNull(message = "Campo 'item' deve ser Preenchido.")
     private Item item;
 }

@@ -6,6 +6,9 @@ import com.order.manager.model.item.request.ItemRequest;
 import com.order.manager.model.dto.ItemDTO;
 import com.order.manager.repository.ItemRepository;
 import com.order.manager.service.ItemService;
+import lombok.extern.log4j.Log4j2;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +16,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Log4j2
 @Service
 public class ItemServiceImpl implements ItemService {
+
+    private static final Logger logger = LoggerFactory.getLogger(ItemServiceImpl.class);
 
     @Autowired
     private ItemRepository repository;

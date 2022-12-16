@@ -1,0 +1,53 @@
+-- public.item definition
+
+-- Drop table
+
+-- DROP TABLE public.item;
+
+CREATE TABLE public.item (
+	id serial4 NOT NULL,
+	"name" varchar NOT NULL,
+	CONSTRAINT item_pk PRIMARY KEY (id)
+);
+
+-- public.orders definition
+
+-- Drop table
+
+-- DROP TABLE public.orders;
+
+CREATE TABLE public.orders (
+	id int4 NOT NULL,
+	id_item int4 NOT NULL,
+	quantity int4 NOT NULL,
+	id_user int4 NOT NULL,
+	creation_date date NOT NULL,
+	CONSTRAINT order_pk PRIMARY KEY (id)
+);
+
+-- public.stockmovement definition
+
+-- Drop table
+
+-- DROP TABLE public.stockmovement;
+
+CREATE TABLE public.stockmovement (
+	id serial4 NOT NULL,
+	id_item int4 NOT NULL,
+	quantity int4 NOT NULL,
+	creation_date date NOT NULL,
+	CONSTRAINT stockmovement_pk PRIMARY KEY (id)
+);
+
+-- public.users definition
+
+-- Drop table
+
+-- DROP TABLE public.users;
+
+CREATE TABLE public.users (
+	id int4 NOT NULL,
+	"name" varchar NOT NULL,
+	email varchar NOT NULL,
+	CONSTRAINT user_pk PRIMARY KEY (id)
+);

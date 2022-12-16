@@ -1,0 +1,785 @@
+2022-12-16 04:58:19.733  INFO 34548 --- [restartedMain] c.order.manager.OrderManagerApplication  : Starting OrderManagerApplication using Java 1.8.0_202 on NCC-1701 with PID 34548 (C:\estudo\order-manager\target\classes started by leona in C:\estudo\order-manager)
+2022-12-16 04:58:19.735  INFO 34548 --- [restartedMain] c.order.manager.OrderManagerApplication  : No active profile set, falling back to 1 default profile: "default"
+2022-12-16 04:58:19.827  INFO 34548 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-16 04:58:19.828  INFO 34548 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-16 04:58:21.005  INFO 34548 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-16 04:58:21.210  INFO 34548 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 182 ms. Found 4 JPA repository interfaces.
+2022-12-16 04:58:23.165  INFO 34548 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-12-16 04:58:23.191  INFO 34548 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-16 04:58:23.192  INFO 34548 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-16 04:58:23.464  INFO 34548 --- [restartedMain] o.a.c.c.C.[.[.[/order-manager]           : Initializing Spring embedded WebApplicationContext
+2022-12-16 04:58:23.465  INFO 34548 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3636 ms
+2022-12-16 04:58:23.691  INFO 34548 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-16 04:58:25.105  INFO 34548 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-16 04:58:25.284  INFO 34548 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-16 04:58:25.407  INFO 34548 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-16 04:58:25.730  INFO 34548 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-16 04:58:25.936  INFO 34548 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-16 04:58:27.056  INFO 34548 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-16 04:58:27.075  INFO 34548 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-16 04:58:28.260  WARN 34548 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-16 04:58:28.521 DEBUG 34548 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2022-12-16 04:58:28.706 TRACE 34548 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.o.m.c.ItemManagerController:
+	{PUT [/v1/item/update]}: updateItem(ItemDTO)
+	{POST [/v1/item/create]}: insertItem(ItemRequest)
+	{GET [/v1/item/find/{id}]}: findItem(Long)
+	{GET [/v1/item/list]}: listItem()
+	{DELETE [/v1/item/delete/{id}]}: deleteItem(Long)
+2022-12-16 04:58:28.712 TRACE 34548 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.o.m.c.OrderManagerController:
+	{GET [/v1/order/find/{id}]}: findOrder(Long)
+	{GET [/v1/order/list]}: listOrder()
+	{DELETE [/v1/order/delete/{id}]}: cancelOrder(Long)
+	{PUT [/v1/order/update]}: updateOrder(OrderDTO)
+	{POST [/v1/order/create]}: createOrder(OrderRequest)
+2022-12-16 04:58:28.715 TRACE 34548 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.o.m.c.StockController:
+	{GET [/v1/stock/list]}: listStock()
+	{DELETE [/v1/stock/delete/{id}]}: cancelStock(Long)
+	{POST [/v1/stock/create]}: createStock(StockRequest)
+	{PUT [/v1/stock/update]}: updateStock(StockDTO)
+	{GET [/v1/stock/find/{id}]}: findStock(Long)
+2022-12-16 04:58:28.721 TRACE 34548 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.o.m.c.UserController:
+	{GET [/v1/user/find/{id}]}: findUser(Long)
+	{DELETE [/v1/user/delete/{id}]}: cancelUser(Long)
+	{GET [/v1/user/list]}: listUser()
+	{POST [/v1/user/create]}: createUser(UserRequest)
+	{PUT [/v1/user/update]}: updateUser(UserDTO)
+2022-12-16 04:58:28.724 TRACE 34548 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2022-12-16 04:58:28.748 TRACE 34548 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/v3/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String,Locale)
+	{GET [/v3/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String,Locale)
+2022-12-16 04:58:28.751 TRACE 34548 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/swagger-ui.html]}: redirectToUi(HttpServletRequest)
+2022-12-16 04:58:28.753 TRACE 34548 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerConfigResource:
+	{GET [/v3/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+2022-12-16 04:58:28.756 DEBUG 34548 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 26 mappings in 'requestMappingHandlerMapping'
+2022-12-16 04:58:28.765 DEBUG 34548 --- [restartedMain] o.s.w.s.h.BeanNameUrlHandlerMapping      : Detected 0 mappings in 'beanNameHandlerMapping'
+2022-12-16 04:58:28.772 TRACE 34548 --- [restartedMain] o.s.w.s.f.support.RouterFunctionMapping  : 0 RouterFunction(s) in 'routerFunctionMapping'
+2022-12-16 04:58:30.572 TRACE 34548 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/webjars/**] onto ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-12-16 04:58:30.573 TRACE 34548 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/**] onto ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-12-16 04:58:30.573 TRACE 34548 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/swagger-ui*/*swagger-initializer.js] onto ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-12-16 04:58:30.574 TRACE 34548 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/swagger-ui*/**] onto ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-12-16 04:58:30.575 DEBUG 34548 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2022-12-16 04:58:30.591 DEBUG 34548 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2022-12-16 04:58:30.829  INFO 34548 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-16 04:58:30.911  INFO 34548 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/order-manager'
+2022-12-16 04:58:30.925  INFO 34548 --- [restartedMain] c.order.manager.OrderManagerApplication  : Started OrderManagerApplication in 12.418 seconds (JVM running for 13.862)
+2022-12-16 04:58:34.079  INFO 34548 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/order-manager]           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-16 04:58:34.079  INFO 34548 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-16 04:58:34.080 TRACE 34548 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.multipart.support.StandardServletMultipartResolver@53d0662d
+2022-12-16 04:58:34.080 TRACE 34548 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@23302839
+2022-12-16 04:58:34.080 TRACE 34548 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.theme.FixedThemeResolver@3b0685d2
+2022-12-16 04:58:34.081 TRACE 34548 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected DefaultRequestToViewNameTranslator
+2022-12-16 04:58:34.081 TRACE 34548 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected SessionFlashMapManager
+2022-12-16 04:58:34.082 DEBUG 34548 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2022-12-16 04:58:34.082  INFO 34548 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2022-12-16 04:58:34.099 TRACE 34548 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/order-manager/swagger-ui/index.html", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2022-12-16 04:58:34.113 TRACE 34548 --- [http-nio-8080-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Matching patterns [/swagger-ui*/**, /**]
+2022-12-16 04:58:34.114 TRACE 34548 --- [http-nio-8080-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to HandlerExecutionChain with [ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]] and 4 interceptors
+2022-12-16 04:58:34.150 TRACE 34548 --- [http-nio-8080-exec-2] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not modified
+2022-12-16 04:58:34.150 TRACE 34548 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : No view rendering, null ModelAndView returned.
+2022-12-16 04:58:34.151 DEBUG 34548 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED, headers={masked}
+2022-12-16 04:58:34.209 TRACE 34548 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/order-manager/swagger-ui/swagger-ui.css", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2022-12-16 04:58:34.210 TRACE 34548 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/order-manager/swagger-ui/index.css", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2022-12-16 04:58:34.211 TRACE 34548 --- [http-nio-8080-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Matching patterns [/swagger-ui*/**, /**]
+2022-12-16 04:58:34.211 TRACE 34548 --- [http-nio-8080-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to HandlerExecutionChain with [ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]] and 4 interceptors
+2022-12-16 04:58:34.212 TRACE 34548 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/order-manager/swagger-ui/swagger-ui-bundle.js", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2022-12-16 04:58:34.212 TRACE 34548 --- [http-nio-8080-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Matching patterns [/swagger-ui*/**, /**]
+2022-12-16 04:58:34.212 TRACE 34548 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/order-manager/swagger-ui/swagger-ui-standalone-preset.js", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2022-12-16 04:58:34.212 TRACE 34548 --- [http-nio-8080-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to HandlerExecutionChain with [ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]] and 4 interceptors
+2022-12-16 04:58:34.212 TRACE 34548 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/order-manager/swagger-ui/swagger-initializer.js", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2022-12-16 04:58:34.213 TRACE 34548 --- [http-nio-8080-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Matching patterns [/swagger-ui*/**, /**]
+2022-12-16 04:58:34.213 TRACE 34548 --- [http-nio-8080-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Matching patterns [/swagger-ui*/**, /**]
+2022-12-16 04:58:34.213 TRACE 34548 --- [http-nio-8080-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to HandlerExecutionChain with [ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]] and 4 interceptors
+2022-12-16 04:58:34.213 TRACE 34548 --- [http-nio-8080-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to HandlerExecutionChain with [ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]] and 4 interceptors
+2022-12-16 04:58:34.213 TRACE 34548 --- [http-nio-8080-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Matching patterns [/swagger-ui*/*swagger-initializer.js, /swagger-ui*/**, /**]
+2022-12-16 04:58:34.214 TRACE 34548 --- [http-nio-8080-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to HandlerExecutionChain with [ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]] and 4 interceptors
+2022-12-16 04:58:34.218 TRACE 34548 --- [http-nio-8080-exec-3] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not modified
+2022-12-16 04:58:34.218 TRACE 34548 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : No view rendering, null ModelAndView returned.
+2022-12-16 04:58:34.218 DEBUG 34548 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED, headers={masked}
+2022-12-16 04:58:34.218 TRACE 34548 --- [http-nio-8080-exec-4] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not modified
+2022-12-16 04:58:34.219 TRACE 34548 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : No view rendering, null ModelAndView returned.
+2022-12-16 04:58:34.219 TRACE 34548 --- [http-nio-8080-exec-6] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not modified
+2022-12-16 04:58:34.220 TRACE 34548 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : No view rendering, null ModelAndView returned.
+2022-12-16 04:58:34.220 DEBUG 34548 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED, headers={masked}
+2022-12-16 04:58:34.220 TRACE 34548 --- [http-nio-8080-exec-1] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not modified
+2022-12-16 04:58:34.220 DEBUG 34548 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED, headers={masked}
+2022-12-16 04:58:34.221 TRACE 34548 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : No view rendering, null ModelAndView returned.
+2022-12-16 04:58:34.221 DEBUG 34548 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED, headers={masked}
+2022-12-16 04:58:34.268 TRACE 34548 --- [http-nio-8080-exec-5] o.s.w.s.r.ResourceHttpRequestHandler     : Applying default cacheSeconds=0
+2022-12-16 04:58:34.286 TRACE 34548 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : No view rendering, null ModelAndView returned.
+2022-12-16 04:58:34.287 DEBUG 34548 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK, headers={masked}
+2022-12-16 04:58:34.584 TRACE 34548 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/order-manager/swagger-ui/favicon-32x32.png", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2022-12-16 04:58:34.585 TRACE 34548 --- [http-nio-8080-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Matching patterns [/swagger-ui*/**, /**]
+2022-12-16 04:58:34.585 TRACE 34548 --- [http-nio-8080-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to HandlerExecutionChain with [ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]] and 4 interceptors
+2022-12-16 04:58:34.587 TRACE 34548 --- [http-nio-8080-exec-7] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not modified
+2022-12-16 04:58:34.587 TRACE 34548 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : No view rendering, null ModelAndView returned.
+2022-12-16 04:58:34.587 DEBUG 34548 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED, headers={masked}
+2022-12-16 04:58:35.175 TRACE 34548 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/order-manager/v3/api-docs/swagger-config", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2022-12-16 04:58:35.182 TRACE 34548 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerConfigResource#openapiJson(HttpServletRequest)
+2022-12-16 04:58:35.227 TRACE 34548 --- [http-nio-8080-exec-8] o.s.web.method.HandlerMethod             : Arguments: [org.apache.catalina.connector.RequestFacade@7823ae41]
+2022-12-16 04:58:35.231 DEBUG 34548 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json]
+2022-12-16 04:58:35.233 TRACE 34548 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [{configUrl=/order-manager/v3/api-docs/swagger-config, oauth2RedirectUrl=http://localhost:8080/order-manager/swagger-ui/oauth2-redirect.html, url=/order-manager/v3/api-docs, validatorUrl=}]
+2022-12-16 04:58:35.237 TRACE 34548 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerAdapter : Applying default cacheSeconds=-1
+2022-12-16 04:58:35.238 TRACE 34548 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : No view rendering, null ModelAndView returned.
+2022-12-16 04:58:35.238 DEBUG 34548 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK, headers={masked}
+2022-12-16 04:58:35.268 TRACE 34548 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/order-manager/v3/api-docs", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2022-12-16 04:58:35.270 TRACE 34548 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.api.OpenApiWebMvcResource#openapiJson(HttpServletRequest, String, Locale)
+2022-12-16 04:58:35.291 TRACE 34548 --- [http-nio-8080-exec-9] o.s.web.method.HandlerMethod             : Arguments: [org.apache.catalina.connector.RequestFacade@7823ae41, /v3/api-docs, pt_BR]
+2022-12-16 04:58:35.927  INFO 34548 --- [http-nio-8080-exec-9] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 635 ms
+2022-12-16 04:58:35.967 DEBUG 34548 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, */*] and supported [application/json]
+2022-12-16 04:58:35.967 TRACE 34548 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing ["{"openapi":"3.0.1","info":{"title":"API - ORDER MANAGER","description":"Micro Serviço","license":{"name":"Apache 2.0","url":"http://springdoc.org"},"version":"v1"},"servers":[{"url":"http://localhost:8080/order-manager","description":"Generated server url"}],"tags":[{"name":"Order Manage","description":" API Version 1.0"},{"name":"Stock Manage","description":" API Version 1.0"},{"name":"Item Manage","description":"API Version 1.0"},{"name":"User Manage","description":"API Version 1.0"}],"paths":{"/v1/user/update":{"put":{"tags":["User Manage"],"operationId":"updateUser","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UserDTO"}}},"required":true},"responses":{"400":{"description":"Bad Request","content":{"*/*":{"schema":{"$ref":"#/components/schemas/ExceptionHandleResponse"}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"$ref":"#/components/schemas/UserDTO"}}}}}}},"/v1/stock/update":{"put":{"tags":["Stock Manage"],"operationId":"updateStock","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/StockDTO"}}},"required":true},"responses":{"400":{"description":"Bad Request","content":{"*/*":{"schema":{"$ref":"#/components/schemas/ExceptionHandleResponse"}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"$ref":"#/components/schemas/StockDTO"}}}}}}},"/v1/order/update":{"put":{"tags":["Order Manage"],"operationId":"updateOrder","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/OrderDTO"}}},"required":true},"responses":{"400":{"description":"Bad Request","content":{"*/*":{"schema":{"$ref":"#/components/schemas/ExceptionHandleResponse"}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"$ref":"#/components/schemas/OrderDTO"}}}}}}},"/v1/item/update":{"put":{"tags":["Item Manage"],"operationId":"updateItem","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ItemDTO"}}},"required":true},"responses":{"400":{"description":"Bad Request","content":{"*/*":{"schema":{"$ref":"#/components/schemas/ExceptionHandleResponse"}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"$ref":"#/components/schemas/ItemDTO"}}}}}}},"/v1/user/create":{"post":{"tags":["User Manage"],"operationId":"createUser","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UserRequest"}}},"required":true},"responses":{"400":{"description":"Bad Request","content":{"*/*":{"schema":{"$ref":"#/components/schemas/ExceptionHandleResponse"}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"$ref":"#/components/schemas/UserDTO"}}}}}}},"/v1/stock/create":{"post":{"tags":["Stock Manage"],"operationId":"createStock","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/StockRequest"}}},"required":true},"responses":{"400":{"description":"Bad Request","content":{"*/*":{"schema":{"$ref":"#/components/schemas/ExceptionHandleResponse"}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"$ref":"#/components/schemas/StockDTO"}}}}}}},"/v1/order/create":{"post":{"tags":["Order Manage"],"operationId":"createOrder","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/OrderRequest"}}},"required":true},"responses":{"400":{"description":"Bad Request","content":{"*/*":{"schema":{"$ref":"#/components/schemas/ExceptionHandleResponse"}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"$ref":"#/components/schemas/OrderDTO"}}}}}}},"/v1/item/create":{"post":{"tags":["Item Manage"],"operationId":"insertItem","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/ItemRequest"}}},"required":true},"responses":{"400":{"description":"Bad Request","content":{"*/*":{"schema":{"$ref":"#/components/schemas/ExceptionHandleResponse"}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"$ref":"#/components/schemas/ItemDTO"}}}}}}},"/v1/user/list":{"get":{"tags":["User Manage"],"operationId":"listUser","responses":{"400":{"description":"Bad Request","content":{"*/*":{"schema":{"$ref":"#/components/schemas/ExceptionHandleResponse"}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/UserDTO"}}}}}}}},"/v1/user/find/{id}":{"get":{"tags":["User Manage"],"operationId":"findUser","parameters":[{"name":"id","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"400":{"description":"Bad Request","content":{"*/*":{"schema":{"$ref":"#/components/schemas/ExceptionHandleResponse"}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"$ref":"#/components/schemas/UserDTO"}}}}}}},"/v1/stock/list":{"get":{"tags":["Stock Manage"],"operationId":"listStock","responses":{"400":{"description":"Bad Request","content":{"*/*":{"schema":{"$ref":"#/components/schemas/ExceptionHandleResponse"}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/StockDTO"}}}}}}}},"/v1/stock/find/{id}":{"get":{"tags":["Stock Manage"],"operationId":"findStock","parameters":[{"name":"id","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"400":{"description":"Bad Request","content":{"*/*":{"schema":{"$ref":"#/components/schemas/ExceptionHandleResponse"}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"$ref":"#/components/schemas/StockDTO"}}}}}}},"/v1/order/list":{"get":{"tags":["Order Manage"],"operationId":"listOrder","responses":{"400":{"description":"Bad Request","content":{"*/*":{"schema":{"$ref":"#/components/schemas/ExceptionHandleResponse"}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/OrderDTO"}}}}}}}},"/v1/order/find/{id}":{"get":{"tags":["Order Manage"],"operationId":"findOrder","parameters":[{"name":"id","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"400":{"description":"Bad Request","content":{"*/*":{"schema":{"$ref":"#/components/schemas/ExceptionHandleResponse"}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"$ref":"#/components/schemas/OrderDTO"}}}}}}},"/v1/item/list":{"get":{"tags":["Item Manage"],"operationId":"listItem","responses":{"400":{"description":"Bad Request","content":{"*/*":{"schema":{"$ref":"#/components/schemas/ExceptionHandleResponse"}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/ItemDTO"}}}}}}}},"/v1/item/find/{id}":{"get":{"tags":["Item Manage"],"operationId":"findItem","parameters":[{"name":"id","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"400":{"description":"Bad Request","content":{"*/*":{"schema":{"$ref":"#/components/schemas/ExceptionHandleResponse"}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"$ref":"#/components/schemas/ItemDTO"}}}}}}},"/v1/user/delete/{id}":{"delete":{"tags":["User Manage"],"operationId":"cancelUser","parameters":[{"name":"id","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"400":{"description":"Bad Request","content":{"*/*":{"schema":{"$ref":"#/components/schemas/ExceptionHandleResponse"}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"type":"object"}}}}}}},"/v1/stock/delete/{id}":{"delete":{"tags":["Stock Manage"],"operationId":"cancelStock","parameters":[{"name":"id","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"400":{"description":"Bad Request","content":{"*/*":{"schema":{"$ref":"#/components/schemas/ExceptionHandleResponse"}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"type":"object"}}}}}}},"/v1/order/delete/{id}":{"delete":{"tags":["Order Manage"],"operationId":"cancelOrder","parameters":[{"name":"id","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"400":{"description":"Bad Request","content":{"*/*":{"schema":{"$ref":"#/components/schemas/ExceptionHandleResponse"}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"type":"object"}}}}}}},"/v1/item/delete/{id}":{"delete":{"tags":["Item Manage"],"operationId":"deleteItem","parameters":[{"name":"id","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}],"responses":{"400":{"description":"Bad Request","content":{"*/*":{"schema":{"$ref":"#/components/schemas/ExceptionHandleResponse"}}}},"200":{"description":"OK","content":{"*/*":{"schema":{"type":"object"}}}}}}}},"components":{"schemas":{"ErrorHandle":{"type":"object","properties":{"httpCode":{"type":"string"},"errorCode":{"type":"string"},"message":{"type":"string"}}},"ExceptionHandleResponse":{"type":"object","properties":{"apiVersion":{"type":"string"},"error":{"$ref":"#/components/schemas/ErrorHandle"}}},"UserDTO":{"required":["email","id","name"],"type":"object","properties":{"id":{"type":"integer","format":"int64"},"name":{"type":"string"},"email":{"type":"string"}}},"Item":{"required":["name"],"type":"object","properties":{"id":{"type":"integer","format":"int64"},"name":{"type":"string"}}},"StockDTO":{"required":["id","item","quantity"],"type":"object","properties":{"id":{"type":"integer","format":"int64"},"item":{"$ref":"#/components/schemas/Item"},"quantity":{"type":"integer","format":"int32"},"creationDate":{"type":"string","format":"date"}}},"OrderDTO":{"required":["id","item","quantity","user"],"type":"object","properties":{"id":{"type":"integer","format":"int64"},"item":{"$ref":"#/components/schemas/Item"},"quantity":{"type":"integer","format":"int32"},"creationDate":{"type":"string","format":"date"},"user":{"$ref":"#/components/schemas/User"}}},"User":{"required":["email","name"],"type":"object","properties":{"id":{"type":"integer","format":"int64"},"name":{"type":"string"},"email":{"type":"string"}}},"ItemDTO":{"required":["id","name"],"type":"object","properties":{"id":{"type":"integer","format":"int64"},"name":{"type":"string"}}},"UserRequest":{"required":["email","name"],"type":"object","properties":{"name":{"type":"string"},"email":{"type":"string"}}},"StockRequest":{"required":["item","quantity"],"type":"object","properties":{"item":{"$ref":"#/components/schemas/Item"},"quantity":{"type":"integer","format":"int32"}}},"OrderRequest":{"required":["item","quantity","user"],"type":"object","properties":{"item":{"$ref":"#/components/schemas/Item"},"quantity":{"type":"integer","format":"int32"},"user":{"$ref":"#/components/schemas/User"}}},"ItemRequest":{"required":["name"],"type":"object","properties":{"name":{"type":"string"}}}}}}"]
+2022-12-16 04:58:35.969 TRACE 34548 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerAdapter : Applying default cacheSeconds=-1
+2022-12-16 04:58:35.969 TRACE 34548 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : No view rendering, null ModelAndView returned.
+2022-12-16 04:58:35.970 DEBUG 34548 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK, headers={masked}
+2022-12-16 05:00:56.944 TRACE 34548 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/order-manager/v1/order/create", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2022-12-16 05:00:56.946 TRACE 34548 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.order.manager.controller.OrderManagerController#createOrder(OrderRequest)
+2022-12-16 05:00:56.976 TRACE 34548 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.order.manager.model.order.request.OrderRequest@8771cbb]
+2022-12-16 05:00:57.048 DEBUG 34548 --- [http-nio-8080-exec-1] o.s.web.method.HandlerMethod             : Could not resolve parameter [0] in public org.springframework.http.ResponseEntity<com.order.manager.model.dto.OrderDTO> com.order.manager.controller.OrderManagerController.createOrder(com.order.manager.model.order.request.OrderRequest): HV000030: No validator could be found for constraint 'javax.validation.constraints.NotBlank' validating type 'com.order.manager.model.entity.User'. Check configuration for 'user'
+2022-12-16 05:00:57.049 DEBUG 34548 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.order.manager.exceptions.AppExceptionHandler#handleThrowable(Throwable, WebRequest)
+2022-12-16 05:00:57.049 TRACE 34548 --- [http-nio-8080-exec-1] o.s.web.method.HandlerMethod             : Arguments: [javax.validation.UnexpectedTypeException: HV000030: No validator could be found for constraint 'javax.validation.constraints.NotBlank' validating type 'com.order.manager.model.entity.User'. Check configuration for 'user', ServletWebRequest: uri=/order-manager/v1/order/create;client=0:0:0:0:0:0:0:1]
+2022-12-16 05:00:57.056 DEBUG 34548 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-12-16 05:00:57.056 TRACE 34548 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionHandleResponse(apiVersion=0.0.1-SNAPSHOT, error=ErrorHandle(httpCode=400, errorCode=API-addresses-400, message=HV000030: No validator could be found for constraint 'javax.validation.constraints.NotBlank' validating type 'com.order.manager.model.entity.User'. Check configuration for 'user'))]
+2022-12-16 05:00:57.058  WARN 34548 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [javax.validation.UnexpectedTypeException: HV000030: No validator could be found for constraint 'javax.validation.constraints.NotBlank' validating type 'com.order.manager.model.entity.User'. Check configuration for 'user']
+2022-12-16 05:00:57.059 TRACE 34548 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : No view rendering, null ModelAndView returned.
+2022-12-16 05:00:57.059 DEBUG 34548 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST, headers={masked}
+2022-12-16 05:01:29.166 TRACE 34548 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/order-manager/v1/order/create", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2022-12-16 05:01:29.168 TRACE 34548 --- [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.order.manager.controller.OrderManagerController#createOrder(OrderRequest)
+2022-12-16 05:01:29.169 TRACE 34548 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.order.manager.model.order.request.OrderRequest@2800d2ef]
+2022-12-16 05:01:29.170 DEBUG 34548 --- [http-nio-8080-exec-5] o.s.web.method.HandlerMethod             : Could not resolve parameter [0] in public org.springframework.http.ResponseEntity<com.order.manager.model.dto.OrderDTO> com.order.manager.controller.OrderManagerController.createOrder(com.order.manager.model.order.request.OrderRequest): HV000030: No validator could be found for constraint 'javax.validation.constraints.NotBlank' validating type 'com.order.manager.model.entity.User'. Check configuration for 'user'
+2022-12-16 05:01:29.171 DEBUG 34548 --- [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.order.manager.exceptions.AppExceptionHandler#handleThrowable(Throwable, WebRequest)
+2022-12-16 05:01:29.171 TRACE 34548 --- [http-nio-8080-exec-5] o.s.web.method.HandlerMethod             : Arguments: [javax.validation.UnexpectedTypeException: HV000030: No validator could be found for constraint 'javax.validation.constraints.NotBlank' validating type 'com.order.manager.model.entity.User'. Check configuration for 'user', ServletWebRequest: uri=/order-manager/v1/order/create;client=0:0:0:0:0:0:0:1]
+2022-12-16 05:01:29.172 DEBUG 34548 --- [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-12-16 05:01:29.172 TRACE 34548 --- [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionHandleResponse(apiVersion=0.0.1-SNAPSHOT, error=ErrorHandle(httpCode=400, errorCode=API-addresses-400, message=HV000030: No validator could be found for constraint 'javax.validation.constraints.NotBlank' validating type 'com.order.manager.model.entity.User'. Check configuration for 'user'))]
+2022-12-16 05:01:29.174  WARN 34548 --- [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [javax.validation.UnexpectedTypeException: HV000030: No validator could be found for constraint 'javax.validation.constraints.NotBlank' validating type 'com.order.manager.model.entity.User'. Check configuration for 'user']
+2022-12-16 05:01:29.174 TRACE 34548 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : No view rendering, null ModelAndView returned.
+2022-12-16 05:01:29.174 DEBUG 34548 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST, headers={masked}
+2022-12-16 05:01:32.209 TRACE 34548 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/order-manager/v1/order/create", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2022-12-16 05:01:32.210 TRACE 34548 --- [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.order.manager.controller.OrderManagerController#createOrder(OrderRequest)
+2022-12-16 05:01:32.210 TRACE 34548 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.order.manager.model.order.request.OrderRequest@418ba8b2]
+2022-12-16 05:01:32.211 DEBUG 34548 --- [http-nio-8080-exec-7] o.s.web.method.HandlerMethod             : Could not resolve parameter [0] in public org.springframework.http.ResponseEntity<com.order.manager.model.dto.OrderDTO> com.order.manager.controller.OrderManagerController.createOrder(com.order.manager.model.order.request.OrderRequest): HV000030: No validator could be found for constraint 'javax.validation.constraints.NotBlank' validating type 'com.order.manager.model.entity.User'. Check configuration for 'user'
+2022-12-16 05:01:32.211 DEBUG 34548 --- [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.order.manager.exceptions.AppExceptionHandler#handleThrowable(Throwable, WebRequest)
+2022-12-16 05:01:32.211 TRACE 34548 --- [http-nio-8080-exec-7] o.s.web.method.HandlerMethod             : Arguments: [javax.validation.UnexpectedTypeException: HV000030: No validator could be found for constraint 'javax.validation.constraints.NotBlank' validating type 'com.order.manager.model.entity.User'. Check configuration for 'user', ServletWebRequest: uri=/order-manager/v1/order/create;client=0:0:0:0:0:0:0:1]
+2022-12-16 05:01:32.212 DEBUG 34548 --- [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-12-16 05:01:32.212 TRACE 34548 --- [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionHandleResponse(apiVersion=0.0.1-SNAPSHOT, error=ErrorHandle(httpCode=400, errorCode=API-addresses-400, message=HV000030: No validator could be found for constraint 'javax.validation.constraints.NotBlank' validating type 'com.order.manager.model.entity.User'. Check configuration for 'user'))]
+2022-12-16 05:01:32.212  WARN 34548 --- [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [javax.validation.UnexpectedTypeException: HV000030: No validator could be found for constraint 'javax.validation.constraints.NotBlank' validating type 'com.order.manager.model.entity.User'. Check configuration for 'user']
+2022-12-16 05:01:32.212 TRACE 34548 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : No view rendering, null ModelAndView returned.
+2022-12-16 05:01:32.213 DEBUG 34548 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST, headers={masked}
+2022-12-16 05:02:50.892  INFO 32228 --- [restartedMain] c.order.manager.OrderManagerApplication  : Starting OrderManagerApplication using Java 1.8.0_202 on NCC-1701 with PID 32228 (C:\estudo\order-manager\target\classes started by leona in C:\estudo\order-manager)
+2022-12-16 05:02:50.894  INFO 32228 --- [restartedMain] c.order.manager.OrderManagerApplication  : No active profile set, falling back to 1 default profile: "default"
+2022-12-16 05:02:50.980  INFO 32228 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-16 05:02:50.981  INFO 32228 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-16 05:02:51.859  INFO 32228 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-16 05:02:52.020  INFO 32228 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 147 ms. Found 4 JPA repository interfaces.
+2022-12-16 05:02:53.733  INFO 32228 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-12-16 05:02:53.749  INFO 32228 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-16 05:02:53.749  INFO 32228 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-16 05:02:53.934  INFO 32228 --- [restartedMain] o.a.c.c.C.[.[.[/order-manager]           : Initializing Spring embedded WebApplicationContext
+2022-12-16 05:02:53.935  INFO 32228 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2953 ms
+2022-12-16 05:02:54.104  INFO 32228 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-16 05:02:55.247  INFO 32228 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-16 05:02:55.361  INFO 32228 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-16 05:02:55.445  INFO 32228 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-16 05:02:55.695  INFO 32228 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-16 05:02:55.865  INFO 32228 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-16 05:02:56.769  INFO 32228 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-16 05:02:56.783  INFO 32228 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-16 05:02:57.807  WARN 32228 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-16 05:02:57.971 DEBUG 32228 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2022-12-16 05:02:58.094 TRACE 32228 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.o.m.c.ItemManagerController:
+	{POST [/v1/item/create]}: insertItem(ItemRequest)
+	{DELETE [/v1/item/delete/{id}]}: deleteItem(Long)
+	{PUT [/v1/item/update]}: updateItem(ItemDTO)
+	{GET [/v1/item/find/{id}]}: findItem(Long)
+	{GET [/v1/item/list]}: listItem()
+2022-12-16 05:02:58.099 TRACE 32228 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.o.m.c.OrderManagerController:
+	{GET [/v1/order/find/{id}]}: findOrder(Long)
+	{POST [/v1/order/create]}: createOrder(OrderRequest)
+	{PUT [/v1/order/update]}: updateOrder(OrderDTO)
+	{DELETE [/v1/order/delete/{id}]}: cancelOrder(Long)
+	{GET [/v1/order/list]}: listOrder()
+2022-12-16 05:02:58.101 TRACE 32228 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.o.m.c.StockController:
+	{DELETE [/v1/stock/delete/{id}]}: cancelStock(Long)
+	{PUT [/v1/stock/update]}: updateStock(StockDTO)
+	{GET [/v1/stock/find/{id}]}: findStock(Long)
+	{GET [/v1/stock/list]}: listStock()
+	{POST [/v1/stock/create]}: createStock(StockRequest)
+2022-12-16 05:02:58.105 TRACE 32228 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.o.m.c.UserController:
+	{POST [/v1/user/create]}: createUser(UserRequest)
+	{GET [/v1/user/list]}: listUser()
+	{GET [/v1/user/find/{id}]}: findUser(Long)
+	{DELETE [/v1/user/delete/{id}]}: cancelUser(Long)
+	{PUT [/v1/user/update]}: updateUser(UserDTO)
+2022-12-16 05:02:58.107 TRACE 32228 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2022-12-16 05:02:58.128 TRACE 32228 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/v3/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String,Locale)
+	{GET [/v3/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String,Locale)
+2022-12-16 05:02:58.130 TRACE 32228 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/swagger-ui.html]}: redirectToUi(HttpServletRequest)
+2022-12-16 05:02:58.131 TRACE 32228 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.w.u.SwaggerConfigResource:
+	{GET [/v3/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+2022-12-16 05:02:58.133 DEBUG 32228 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 26 mappings in 'requestMappingHandlerMapping'
+2022-12-16 05:02:58.141 DEBUG 32228 --- [restartedMain] o.s.w.s.h.BeanNameUrlHandlerMapping      : Detected 0 mappings in 'beanNameHandlerMapping'
+2022-12-16 05:02:58.148 TRACE 32228 --- [restartedMain] o.s.w.s.f.support.RouterFunctionMapping  : 0 RouterFunction(s) in 'routerFunctionMapping'
+2022-12-16 05:02:59.165 TRACE 32228 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/webjars/**] onto ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-12-16 05:02:59.166 TRACE 32228 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/**] onto ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-12-16 05:02:59.167 TRACE 32228 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/swagger-ui*/*swagger-initializer.js] onto ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-12-16 05:02:59.167 TRACE 32228 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/swagger-ui*/**] onto ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-12-16 05:02:59.167 DEBUG 32228 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2022-12-16 05:02:59.180 DEBUG 32228 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2022-12-16 05:02:59.406  INFO 32228 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-16 05:02:59.458  INFO 32228 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/order-manager'
+2022-12-16 05:02:59.472  INFO 32228 --- [restartedMain] c.order.manager.OrderManagerApplication  : Started OrderManagerApplication in 9.313 seconds (JVM running for 10.31)
+2022-12-16 05:03:11.006  INFO 32228 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/order-manager]           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-16 05:03:11.006  INFO 32228 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-16 05:03:11.007 TRACE 32228 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.multipart.support.StandardServletMultipartResolver@225925c6
+2022-12-16 05:03:11.007 TRACE 32228 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@1f9b8ea5
+2022-12-16 05:03:11.007 TRACE 32228 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.theme.FixedThemeResolver@5e6a6a0a
+2022-12-16 05:03:11.009 TRACE 32228 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected DefaultRequestToViewNameTranslator
+2022-12-16 05:03:11.009 TRACE 32228 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected SessionFlashMapManager
+2022-12-16 05:03:11.010 DEBUG 32228 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2022-12-16 05:03:11.010  INFO 32228 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2022-12-16 05:03:11.042 TRACE 32228 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/order-manager/v1/order/create", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2022-12-16 05:03:11.061 TRACE 32228 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.order.manager.controller.OrderManagerController#createOrder(OrderRequest)
+2022-12-16 05:03:11.282 TRACE 32228 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.order.manager.model.order.request.OrderRequest@7f45f20d]
+2022-12-16 05:03:11.360 TRACE 32228 --- [http-nio-8080-exec-1] o.s.web.method.HandlerMethod             : Arguments: [com.order.manager.model.order.request.OrderRequest@7f45f20d]
+2022-12-16 05:03:11.681  WARN 32228 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 42703
+2022-12-16 05:03:11.682 ERROR 32228 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: column stockmovem0_.creation_date does not exist
+  Dica: Perhaps you meant to reference the column "stockmovem0_.creationdate".
+  Posição: 35
+2022-12-16 05:03:11.693 DEBUG 32228 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.order.manager.exceptions.AppExceptionHandler#handleThrowable(Throwable, WebRequest)
+2022-12-16 05:03:11.694 TRACE 32228 --- [http-nio-8080-exec-1] o.s.web.method.HandlerMethod             : Arguments: [org.springframework.dao.InvalidDataAccessResourceUsageException: could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet, ServletWebRequest: uri=/order-manager/v1/order/create;client=0:0:0:0:0:0:0:1]
+2022-12-16 05:03:11.734 DEBUG 32228 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-12-16 05:03:11.735 TRACE 32228 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionHandleResponse(apiVersion=0.0.1-SNAPSHOT, error=ErrorHandle(httpCode=400, errorCode=API-addresses-400, message=could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet))]
+2022-12-16 05:03:11.766  WARN 32228 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.InvalidDataAccessResourceUsageException: could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet]
+2022-12-16 05:03:11.766 TRACE 32228 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : No view rendering, null ModelAndView returned.
+2022-12-16 05:03:11.767 DEBUG 32228 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST, headers={masked}
+2022-12-16 05:05:05.947 TRACE 32228 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/order-manager/v1/order/create", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2022-12-16 05:05:05.948 TRACE 32228 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.order.manager.controller.OrderManagerController#createOrder(OrderRequest)
+2022-12-16 05:05:05.949 TRACE 32228 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.order.manager.model.order.request.OrderRequest@35437d07]
+2022-12-16 05:05:05.950 TRACE 32228 --- [http-nio-8080-exec-2] o.s.web.method.HandlerMethod             : Arguments: [com.order.manager.model.order.request.OrderRequest@35437d07]
+2022-12-16 05:05:17.234  WARN 32228 --- [http-nio-8080-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 42703
+2022-12-16 05:05:17.239 ERROR 32228 --- [http-nio-8080-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: column stockmovem0_.creation_date does not exist
+  Dica: Perhaps you meant to reference the column "stockmovem0_.creationdate".
+  Posição: 35
+2022-12-16 05:05:20.036 DEBUG 32228 --- [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.order.manager.exceptions.AppExceptionHandler#handleThrowable(Throwable, WebRequest)
+2022-12-16 05:05:20.038 TRACE 32228 --- [http-nio-8080-exec-2] o.s.web.method.HandlerMethod             : Arguments: [org.springframework.dao.InvalidDataAccessResourceUsageException: could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet, ServletWebRequest: uri=/order-manager/v1/order/create;client=0:0:0:0:0:0:0:1]
+2022-12-16 05:05:20.041 DEBUG 32228 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-12-16 05:05:20.043 TRACE 32228 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionHandleResponse(apiVersion=0.0.1-SNAPSHOT, error=ErrorHandle(httpCode=400, errorCode=API-addresses-400, message=could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet))]
+2022-12-16 05:05:20.046  WARN 32228 --- [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.InvalidDataAccessResourceUsageException: could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet]
+2022-12-16 05:05:20.047 TRACE 32228 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : No view rendering, null ModelAndView returned.
+2022-12-16 05:05:20.048 DEBUG 32228 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST, headers={masked}
+2022-12-16 05:06:05.210 TRACE 32228 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/order-manager/v1/order/create", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+2022-12-16 05:06:05.211 TRACE 32228 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.order.manager.controller.OrderManagerController#createOrder(OrderRequest)
+2022-12-16 05:06:05.212 TRACE 32228 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.order.manager.model.order.request.OrderRequest@30d28130]
+2022-12-16 05:06:05.213 TRACE 32228 --- [http-nio-8080-exec-3] o.s.web.method.HandlerMethod             : Arguments: [com.order.manager.model.order.request.OrderRequest@30d28130]
+2022-12-16 05:06:27.670  WARN 32228 --- [http-nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 42703
+2022-12-16 05:06:27.670 ERROR 32228 --- [http-nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: column stockmovem0_.creation_date does not exist
+  Dica: Perhaps you meant to reference the column "stockmovem0_.creationdate".
+  Posição: 35
+2022-12-16 05:07:50.853  WARN 32228 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m55s431ms828µs300ns).
+2022-12-16 05:07:50.878  WARN 32228 --- [http-nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 42703
+2022-12-16 05:07:50.878 ERROR 32228 --- [http-nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: column stockmovem0_.creation_date does not exist
+  Dica: Perhaps you meant to reference the column "stockmovem0_.creationdate".
+  Posição: 35
+2022-12-16 05:07:50.879 DEBUG 32228 --- [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.order.manager.exceptions.AppExceptionHandler#handleThrowable(Throwable, WebRequest)
+2022-12-16 05:07:50.880 TRACE 32228 --- [http-nio-8080-exec-3] o.s.web.method.HandlerMethod             : Arguments: [org.springframework.dao.InvalidDataAccessResourceUsageException: could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet, ServletWebRequest: uri=/order-manager/v1/order/create;client=0:0:0:0:0:0:0:1]
+2022-12-16 05:07:50.880 DEBUG 32228 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-12-16 05:07:50.881 TRACE 32228 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionHandleResponse(apiVersion=0.0.1-SNAPSHOT, error=ErrorHandle(httpCode=400, errorCode=API-addresses-400, message=could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet))]
+2022-12-16 05:07:50.883  WARN 32228 --- [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.InvalidDataAccessResourceUsageException: could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet]
+2022-12-16 05:07:50.883 TRACE 32228 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : No view rendering, null ModelAndView returned.
+2022-12-16 05:07:50.884 DEBUG 32228 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST, headers={masked}
+2022-12-16 10:07:39.544  INFO 40144 --- [restartedMain] c.order.manager.OrderManagerApplication  : Starting OrderManagerApplication using Java 1.8.0_202 on NCC-1701 with PID 40144 (C:\estudo\order-manager\target\classes started by leona in C:\estudo\order-manager)
+2022-12-16 10:07:39.546  INFO 40144 --- [restartedMain] c.order.manager.OrderManagerApplication  : No active profile set, falling back to 1 default profile: "default"
+2022-12-16 10:07:39.631  INFO 40144 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-16 10:07:39.631  INFO 40144 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-16 10:07:40.633  INFO 40144 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-16 10:07:40.818  INFO 40144 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 157 ms. Found 4 JPA repository interfaces.
+2022-12-16 10:07:42.636  INFO 40144 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-12-16 10:07:42.653  INFO 40144 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-16 10:07:42.653  INFO 40144 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-16 10:07:42.847  INFO 40144 --- [restartedMain] o.a.c.c.C.[.[.[/order-manager]           : Initializing Spring embedded WebApplicationContext
+2022-12-16 10:07:42.848  INFO 40144 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3216 ms
+2022-12-16 10:07:43.020  INFO 40144 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-16 10:07:44.248  INFO 40144 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-16 10:07:44.381  INFO 40144 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-16 10:07:44.481  INFO 40144 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-16 10:07:44.776  INFO 40144 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-16 10:07:44.990  INFO 40144 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-16 10:07:46.026  INFO 40144 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-16 10:07:46.044  INFO 40144 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-16 10:07:47.235  WARN 40144 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-16 10:07:47.421 DEBUG 40144 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2022-12-16 10:07:47.608 DEBUG 40144 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 26 mappings in 'requestMappingHandlerMapping'
+2022-12-16 10:07:48.749 DEBUG 40144 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2022-12-16 10:07:48.767 DEBUG 40144 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2022-12-16 10:07:49.035  INFO 40144 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-16 10:07:49.083  INFO 40144 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/order-manager'
+2022-12-16 10:07:49.096  INFO 40144 --- [restartedMain] c.order.manager.OrderManagerApplication  : Started OrderManagerApplication in 10.328 seconds (JVM running for 11.47)
+2022-12-16 10:07:59.013  INFO 40144 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/order-manager]           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-16 10:07:59.014  INFO 40144 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-16 10:07:59.014 DEBUG 40144 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2022-12-16 10:07:59.015 DEBUG 40144 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2022-12-16 10:07:59.015 DEBUG 40144 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2022-12-16 10:07:59.016 DEBUG 40144 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1e0429c5
+2022-12-16 10:07:59.017 DEBUG 40144 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@41ee8605
+2022-12-16 10:07:59.017 DEBUG 40144 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2022-12-16 10:07:59.017  INFO 40144 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2022-12-16 10:07:59.038 DEBUG 40144 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/order-manager/swagger-ui/index.html", parameters={}
+2022-12-16 10:07:59.052 DEBUG 40144 --- [http-nio-8080-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-12-16 10:07:59.085 DEBUG 40144 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
+2022-12-16 10:07:59.149 DEBUG 40144 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/order-manager/swagger-ui/swagger-initializer.js", parameters={}
+2022-12-16 10:07:59.152 DEBUG 40144 --- [http-nio-8080-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2022-12-16 10:07:59.222 DEBUG 40144 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-12-16 10:08:00.064 DEBUG 40144 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/order-manager/v3/api-docs/swagger-config", parameters={}
+2022-12-16 10:08:00.068 DEBUG 40144 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerConfigResource#openapiJson(HttpServletRequest)
+2022-12-16 10:08:00.089 DEBUG 40144 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json]
+2022-12-16 10:08:00.090 DEBUG 40144 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing [{configUrl=/order-manager/v3/api-docs/swagger-config, oauth2RedirectUrl=http://localhost:8080/order- (truncated)...]
+2022-12-16 10:08:00.095 DEBUG 40144 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-12-16 10:08:00.152 DEBUG 40144 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/order-manager/v3/api-docs", parameters={}
+2022-12-16 10:08:00.154 DEBUG 40144 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.api.OpenApiWebMvcResource#openapiJson(HttpServletRequest, String, Locale)
+2022-12-16 10:08:00.817  INFO 40144 --- [http-nio-8080-exec-4] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 633 ms
+2022-12-16 10:08:00.851 DEBUG 40144 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, */*] and supported [application/json]
+2022-12-16 10:08:00.851 DEBUG 40144 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing ["{"openapi":"3.0.1","info":{"title":"API - ORDER MANAGER","description":"Micro Serviço","license":{"n (truncated)..."]
+2022-12-16 10:08:00.853 DEBUG 40144 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-12-16 10:11:38.303  INFO 10880 --- [restartedMain] c.order.manager.OrderManagerApplication  : Starting OrderManagerApplication using Java 1.8.0_202 on NCC-1701 with PID 10880 (C:\estudo\order-manager\target\classes started by leona in C:\estudo\order-manager)
+2022-12-16 10:11:38.305  INFO 10880 --- [restartedMain] c.order.manager.OrderManagerApplication  : No active profile set, falling back to 1 default profile: "default"
+2022-12-16 10:11:38.386  INFO 10880 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-16 10:11:38.386  INFO 10880 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-16 10:11:39.263  INFO 10880 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-16 10:11:39.425  INFO 10880 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 149 ms. Found 4 JPA repository interfaces.
+2022-12-16 10:11:41.198  INFO 10880 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-12-16 10:11:41.216  INFO 10880 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-16 10:11:41.217  INFO 10880 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-16 10:11:41.441  INFO 10880 --- [restartedMain] o.a.c.c.C.[.[.[/order-manager]           : Initializing Spring embedded WebApplicationContext
+2022-12-16 10:11:41.441  INFO 10880 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3054 ms
+2022-12-16 10:11:41.609  INFO 10880 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-16 10:11:42.918  INFO 10880 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-16 10:11:43.089  INFO 10880 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-16 10:11:43.170  INFO 10880 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-16 10:11:43.416  INFO 10880 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-16 10:11:43.588  INFO 10880 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-16 10:11:44.498  INFO 10880 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-16 10:11:44.513  INFO 10880 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-16 10:11:45.544  WARN 10880 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-16 10:11:45.717 DEBUG 10880 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2022-12-16 10:11:45.873 DEBUG 10880 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 26 mappings in 'requestMappingHandlerMapping'
+2022-12-16 10:11:46.970 DEBUG 10880 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2022-12-16 10:11:46.985 DEBUG 10880 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2022-12-16 10:11:47.196  INFO 10880 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-16 10:11:47.248  INFO 10880 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/order-manager'
+2022-12-16 10:11:47.262  INFO 10880 --- [restartedMain] c.order.manager.OrderManagerApplication  : Started OrderManagerApplication in 9.694 seconds (JVM running for 10.732)
+2022-12-16 10:15:23.423  INFO 10880 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/order-manager]           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-16 10:15:23.424  INFO 10880 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-16 10:15:23.424 DEBUG 10880 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2022-12-16 10:15:23.425 DEBUG 10880 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2022-12-16 10:15:23.425 DEBUG 10880 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2022-12-16 10:15:23.427 DEBUG 10880 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@7635066d
+2022-12-16 10:15:23.428 DEBUG 10880 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@46a06cd6
+2022-12-16 10:15:23.428 DEBUG 10880 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2022-12-16 10:15:23.428  INFO 10880 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2022-12-16 10:15:23.453 DEBUG 10880 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/order-manager/v1/order/create", parameters={}
+2022-12-16 10:15:23.469 DEBUG 10880 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.order.manager.controller.OrderManagerController#createOrder(OrderRequest)
+2022-12-16 10:15:23.650 DEBUG 10880 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.order.manager.model.order.request.OrderRequest@3a5f76]
+2022-12-16 10:15:23.716  INFO 10880 --- [http-nio-8080-exec-1] c.o.m.service.impl.OrderServiceImpl      : ======= > Init SaveOrder
+2022-12-16 10:16:19.922  WARN 10880 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 42703
+2022-12-16 10:16:19.924 ERROR 10880 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: column user0_.id does not exist
+  Posição: 8
+2022-12-16 10:16:19.970  INFO 10880 --- [http-nio-8080-exec-1] o.h.e.internal.DefaultLoadEventListener  : HHH000327: Error performing load command
+
+org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:103) ~[hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:37) ~[hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113) ~[hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99) ~[hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.extract(ResultSetReturnImpl.java:67) ~[hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.loader.plan.exec.internal.AbstractLoadPlanBasedLoader.getResultSet(AbstractLoadPlanBasedLoader.java:390) ~[hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.loader.plan.exec.internal.AbstractLoadPlanBasedLoader.executeQueryStatement(AbstractLoadPlanBasedLoader.java:163) ~[hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.loader.plan.exec.internal.AbstractLoadPlanBasedLoader.executeLoad(AbstractLoadPlanBasedLoader.java:104) ~[hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.loader.entity.plan.AbstractLoadPlanBasedEntityLoader.load(AbstractLoadPlanBasedEntityLoader.java:285) ~[hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.doLoad(AbstractEntityPersister.java:4521) ~[hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.load(AbstractEntityPersister.java:4511) ~[hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadFromDatasource(DefaultLoadEventListener.java:571) [hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.doLoad(DefaultLoadEventListener.java:539) [hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:208) [hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.proxyOrLoad(DefaultLoadEventListener.java:327) [hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.doOnLoad(DefaultLoadEventListener.java:108) [hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:74) [hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:118) ~[hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.internal.SessionImpl.fireLoadNoChecks(SessionImpl.java:1231) ~[hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.internal.SessionImpl.fireLoad(SessionImpl.java:1220) ~[hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.internal.SessionImpl.access$2100(SessionImpl.java:202) ~[hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.doLoad(SessionImpl.java:2848) ~[hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.lambda$load$1(SessionImpl.java:2825) ~[hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.perform(SessionImpl.java:2781) ~[hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.load(SessionImpl.java:2825) ~[hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.internal.SessionImpl.find(SessionImpl.java:3413) ~[hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at org.hibernate.internal.SessionImpl.find(SessionImpl.java:3380) ~[hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_202]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_202]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_202]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_202]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:362) ~[spring-orm-5.3.23.jar:5.3.23]
+	at com.sun.proxy.$Proxy117.find(Unknown Source) ~[na:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_202]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_202]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_202]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_202]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:311) ~[spring-orm-5.3.23.jar:5.3.23]
+	at com.sun.proxy.$Proxy117.find(Unknown Source) ~[na:na]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById(SimpleJpaRepository.java:335) ~[spring-data-jpa-2.7.5.jar:2.7.5]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_202]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_202]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_202]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_202]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:289) ~[spring-data-commons-2.7.5.jar:2.7.5]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:137) ~[spring-data-commons-2.7.5.jar:2.7.5]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:121) ~[spring-data-commons-2.7.5.jar:2.7.5]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:530) ~[spring-data-commons-2.7.5.jar:2.7.5]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:286) ~[spring-data-commons-2.7.5.jar:2.7.5]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:640) ~[spring-data-commons-2.7.5.jar:2.7.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:164) ~[spring-data-commons-2.7.5.jar:2.7.5]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:139) ~[spring-data-commons-2.7.5.jar:2.7.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:81) ~[spring-data-commons-2.7.5.jar:2.7.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174) ~[spring-data-jpa-2.7.5.jar:2.7.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.23.jar:5.3.23]
+	at com.sun.proxy.$Proxy126.findById(Unknown Source) ~[na:na]
+	at com.order.manager.service.impl.UserServiceImpl.getUser(UserServiceImpl.java:52) ~[classes/:na]
+	at com.order.manager.service.impl.OrderServiceImpl.saveOrder(OrderServiceImpl.java:62) ~[classes/:na]
+	at com.order.manager.controller.OrderManagerController.createOrder(OrderManagerController.java:27) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_202]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_202]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_202]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_202]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:696) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779) ~[tomcat-embed-core-9.0.68.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.68.jar:9.0.68]
+	at java.lang.Thread.run(Thread.java:748) ~[na:1.8.0_202]
+Caused by: org.postgresql.util.PSQLException: ERROR: column user0_.id does not exist
+  Posição: 8
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2675) ~[postgresql-42.3.7.jar:42.3.7]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2365) ~[postgresql-42.3.7.jar:42.3.7]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:355) ~[postgresql-42.3.7.jar:42.3.7]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490) ~[postgresql-42.3.7.jar:42.3.7]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408) ~[postgresql-42.3.7.jar:42.3.7]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:167) ~[postgresql-42.3.7.jar:42.3.7]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:119) ~[postgresql-42.3.7.jar:42.3.7]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.extract(ResultSetReturnImpl.java:57) ~[hibernate-core-5.6.12.Final.jar:5.6.12.Final]
+	... 116 common frames omitted
+
+2022-12-16 10:16:48.226  WARN 10880 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=53s680ms551µs500ns).
+2022-12-16 10:16:48.231 DEBUG 10880 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.order.manager.exceptions.AppExceptionHandler#handleThrowable(Throwable, WebRequest)
+2022-12-16 10:16:48.346 DEBUG 10880 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-12-16 10:16:48.348 DEBUG 10880 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionHandleResponse(apiVersion=0.0.1-SNAPSHOT, error=ErrorHandle(httpCode=400, errorCode=API-add (truncated)...]
+2022-12-16 10:16:48.375  WARN 10880 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.InvalidDataAccessResourceUsageException: could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet]
+2022-12-16 10:16:48.376 DEBUG 10880 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2022-12-16 10:21:20.589  INFO 39164 --- [restartedMain] c.order.manager.OrderManagerApplication  : Starting OrderManagerApplication using Java 1.8.0_202 on NCC-1701 with PID 39164 (C:\estudo\order-manager\target\classes started by leona in C:\estudo\order-manager)
+2022-12-16 10:21:20.591  INFO 39164 --- [restartedMain] c.order.manager.OrderManagerApplication  : No active profile set, falling back to 1 default profile: "default"
+2022-12-16 10:21:20.679  INFO 39164 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-16 10:21:20.679  INFO 39164 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-16 10:21:21.550  INFO 39164 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-16 10:21:21.709  INFO 39164 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 144 ms. Found 4 JPA repository interfaces.
+2022-12-16 10:21:23.453  INFO 39164 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-12-16 10:21:23.468  INFO 39164 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-16 10:21:23.469  INFO 39164 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-16 10:21:23.667  INFO 39164 --- [restartedMain] o.a.c.c.C.[.[.[/order-manager]           : Initializing Spring embedded WebApplicationContext
+2022-12-16 10:21:23.667  INFO 39164 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2987 ms
+2022-12-16 10:21:23.834  INFO 39164 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-16 10:21:25.127  INFO 39164 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-16 10:21:25.229  INFO 39164 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-16 10:21:25.304  INFO 39164 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-16 10:21:25.534  INFO 39164 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-16 10:21:25.701  INFO 39164 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-16 10:21:26.673  INFO 39164 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-16 10:21:26.689  INFO 39164 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-16 10:21:27.735  WARN 39164 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-16 10:21:27.915 DEBUG 39164 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2022-12-16 10:21:28.074 DEBUG 39164 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 26 mappings in 'requestMappingHandlerMapping'
+2022-12-16 10:21:29.091 DEBUG 39164 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2022-12-16 10:21:29.110 DEBUG 39164 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2022-12-16 10:21:29.325  INFO 39164 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-16 10:21:29.388  INFO 39164 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/order-manager'
+2022-12-16 10:21:29.406  INFO 39164 --- [restartedMain] c.order.manager.OrderManagerApplication  : Started OrderManagerApplication in 9.584 seconds (JVM running for 10.582)
+2022-12-16 10:21:43.623  INFO 39164 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/order-manager]           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-16 10:21:43.624  INFO 39164 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-16 10:21:43.625 DEBUG 39164 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2022-12-16 10:21:43.625 DEBUG 39164 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2022-12-16 10:21:43.625 DEBUG 39164 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2022-12-16 10:21:43.627 DEBUG 39164 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@59a1d13
+2022-12-16 10:21:43.627 DEBUG 39164 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@7021eeae
+2022-12-16 10:21:43.627 DEBUG 39164 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2022-12-16 10:21:43.628  INFO 39164 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2022-12-16 10:21:43.647 DEBUG 39164 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/order-manager/v1/order/create", parameters={}
+2022-12-16 10:21:43.660 DEBUG 39164 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.order.manager.controller.OrderManagerController#createOrder(OrderRequest)
+2022-12-16 10:21:43.816 DEBUG 39164 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.order.manager.model.order.request.OrderRequest@3a8dc00]
+2022-12-16 10:21:43.868  INFO 39164 --- [http-nio-8080-exec-1] c.o.m.service.impl.OrderServiceImpl      : ======= > Init SaveOrder
+2022-12-16 10:22:19.565 DEBUG 39164 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.order.manager.exceptions.AppExceptionHandler#handleThrowable(Throwable, WebRequest)
+2022-12-16 10:22:19.595 DEBUG 39164 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-12-16 10:22:19.596 DEBUG 39164 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionHandleResponse(apiVersion=0.0.1-SNAPSHOT, error=ErrorHandle(httpCode=400, errorCode=API-add (truncated)...]
+2022-12-16 10:22:19.616  WARN 39164 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [javax.validation.UnexpectedTypeException: HV000030: No validator could be found for constraint 'javax.validation.constraints.NotBlank' validating type 'com.order.manager.model.entity.User'. Check configuration for 'user']
+2022-12-16 10:22:19.617 DEBUG 39164 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2022-12-16 10:24:21.879  INFO 17392 --- [restartedMain] c.order.manager.OrderManagerApplication  : Starting OrderManagerApplication using Java 1.8.0_202 on NCC-1701 with PID 17392 (C:\estudo\order-manager\target\classes started by leona in C:\estudo\order-manager)
+2022-12-16 10:24:21.880  INFO 17392 --- [restartedMain] c.order.manager.OrderManagerApplication  : No active profile set, falling back to 1 default profile: "default"
+2022-12-16 10:24:21.958  INFO 17392 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-16 10:24:21.958  INFO 17392 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-16 10:24:22.842  INFO 17392 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-16 10:24:23.001  INFO 17392 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 143 ms. Found 4 JPA repository interfaces.
+2022-12-16 10:24:24.743  INFO 17392 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-12-16 10:24:24.759  INFO 17392 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-16 10:24:24.760  INFO 17392 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-16 10:24:24.954  INFO 17392 --- [restartedMain] o.a.c.c.C.[.[.[/order-manager]           : Initializing Spring embedded WebApplicationContext
+2022-12-16 10:24:24.954  INFO 17392 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2995 ms
+2022-12-16 10:24:25.116  INFO 17392 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-16 10:24:26.460  INFO 17392 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-16 10:24:26.565  INFO 17392 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-16 10:24:26.645  INFO 17392 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-16 10:24:26.879  INFO 17392 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-16 10:24:27.046  INFO 17392 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-16 10:24:27.966  INFO 17392 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-16 10:24:27.980  INFO 17392 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-16 10:24:29.041  WARN 17392 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-16 10:24:29.213 DEBUG 17392 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2022-12-16 10:24:29.367 DEBUG 17392 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 26 mappings in 'requestMappingHandlerMapping'
+2022-12-16 10:24:30.363 DEBUG 17392 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2022-12-16 10:24:30.375 DEBUG 17392 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2022-12-16 10:24:30.606  INFO 17392 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-16 10:24:30.656  INFO 17392 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/order-manager'
+2022-12-16 10:24:30.670  INFO 17392 --- [restartedMain] c.order.manager.OrderManagerApplication  : Started OrderManagerApplication in 9.63 seconds (JVM running for 10.686)
+2022-12-16 10:24:40.247  INFO 17392 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/order-manager]           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-16 10:24:40.247  INFO 17392 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-16 10:24:40.248 DEBUG 17392 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2022-12-16 10:24:40.248 DEBUG 17392 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2022-12-16 10:24:40.248 DEBUG 17392 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2022-12-16 10:24:40.249 DEBUG 17392 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1e9efd9
+2022-12-16 10:24:40.249 DEBUG 17392 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@785fc63d
+2022-12-16 10:24:40.249 DEBUG 17392 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2022-12-16 10:24:40.250  INFO 17392 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2022-12-16 10:24:40.266 DEBUG 17392 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/order-manager/v1/order/create", parameters={}
+2022-12-16 10:24:40.277 DEBUG 17392 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.order.manager.controller.OrderManagerController#createOrder(OrderRequest)
+2022-12-16 10:24:40.445 DEBUG 17392 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.order.manager.model.order.request.OrderRequest@32c995bd]
+2022-12-16 10:24:40.505  INFO 17392 --- [http-nio-8080-exec-1] c.o.m.service.impl.OrderServiceImpl      : ======= > Init SaveOrder
+2022-12-16 10:24:55.994  WARN 17392 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 42601
+2022-12-16 10:24:55.996 ERROR 17392 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: syntax error at or near "order"
+  Posição: 13
+2022-12-16 10:25:38.136  WARN 17392 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m11s576ms83µs600ns).
+2022-12-16 10:25:38.142 DEBUG 17392 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.order.manager.exceptions.AppExceptionHandler#handleThrowable(Throwable, WebRequest)
+2022-12-16 10:25:38.235 DEBUG 17392 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-12-16 10:25:38.239 DEBUG 17392 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionHandleResponse(apiVersion=0.0.1-SNAPSHOT, error=ErrorHandle(httpCode=400, errorCode=API-add (truncated)...]
+2022-12-16 10:25:38.303  WARN 17392 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.InvalidDataAccessResourceUsageException: could not execute statement; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not execute statement]
+2022-12-16 10:25:38.307 DEBUG 17392 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2022-12-16 10:28:24.932  INFO 7960 --- [restartedMain] c.order.manager.OrderManagerApplication  : Starting OrderManagerApplication using Java 1.8.0_202 on NCC-1701 with PID 7960 (C:\estudo\order-manager\target\classes started by leona in C:\estudo\order-manager)
+2022-12-16 10:28:24.933  INFO 7960 --- [restartedMain] c.order.manager.OrderManagerApplication  : No active profile set, falling back to 1 default profile: "default"
+2022-12-16 10:28:25.020  INFO 7960 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-16 10:28:25.020  INFO 7960 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-16 10:28:25.954  INFO 7960 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-16 10:28:26.123  INFO 7960 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 151 ms. Found 4 JPA repository interfaces.
+2022-12-16 10:28:27.850  INFO 7960 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-12-16 10:28:27.865  INFO 7960 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-16 10:28:27.866  INFO 7960 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-16 10:28:28.073  INFO 7960 --- [restartedMain] o.a.c.c.C.[.[.[/order-manager]           : Initializing Spring embedded WebApplicationContext
+2022-12-16 10:28:28.074  INFO 7960 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3053 ms
+2022-12-16 10:28:28.248  INFO 7960 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-16 10:28:29.494  INFO 7960 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-16 10:28:29.601  INFO 7960 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-16 10:28:29.678  INFO 7960 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-16 10:28:29.904  INFO 7960 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-16 10:28:30.093  INFO 7960 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-16 10:28:31.036  INFO 7960 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-16 10:28:31.051  INFO 7960 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-16 10:28:32.118  WARN 7960 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-16 10:28:32.291 DEBUG 7960 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2022-12-16 10:28:32.442 DEBUG 7960 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 26 mappings in 'requestMappingHandlerMapping'
+2022-12-16 10:28:33.627 DEBUG 7960 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2022-12-16 10:28:33.639 DEBUG 7960 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2022-12-16 10:28:33.899  INFO 7960 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-16 10:28:33.947  INFO 7960 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/order-manager'
+2022-12-16 10:28:33.960  INFO 7960 --- [restartedMain] c.order.manager.OrderManagerApplication  : Started OrderManagerApplication in 9.752 seconds (JVM running for 10.752)
+2022-12-16 10:31:59.363  INFO 7960 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/order-manager]           : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-16 10:31:59.363  INFO 7960 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-16 10:31:59.364 DEBUG 7960 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2022-12-16 10:31:59.364 DEBUG 7960 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2022-12-16 10:31:59.364 DEBUG 7960 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2022-12-16 10:31:59.366 DEBUG 7960 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@2a368d7
+2022-12-16 10:31:59.367 DEBUG 7960 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@ffa7fa8
+2022-12-16 10:31:59.367 DEBUG 7960 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2022-12-16 10:31:59.367  INFO 7960 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2022-12-16 10:31:59.392 DEBUG 7960 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/order-manager/v1/order/create", parameters={}
+2022-12-16 10:31:59.407 DEBUG 7960 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.order.manager.controller.OrderManagerController#createOrder(OrderRequest)
+2022-12-16 10:31:59.565 DEBUG 7960 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.order.manager.model.order.request.OrderRequest@3c52eeb]
+2022-12-16 10:31:59.612  INFO 7960 --- [http-nio-8080-exec-1] c.o.m.service.impl.OrderServiceImpl      : ======= > Init SaveOrder
+2022-12-16 10:32:56.703  WARN 7960 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=57s32ms859µs).
+2022-12-16 10:33:22.383  WARN 7960 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 42P01
+2022-12-16 10:33:22.383 ERROR 7960 --- [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: relation "orders" does not exist
+  Posição: 13
+2022-12-16 10:33:22.428 DEBUG 7960 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.order.manager.exceptions.AppExceptionHandler#handleThrowable(Throwable, WebRequest)
+2022-12-16 10:33:22.457 DEBUG 7960 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-12-16 10:33:22.458 DEBUG 7960 --- [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionHandleResponse(apiVersion=0.0.1-SNAPSHOT, error=ErrorHandle(httpCode=400, errorCode=API-add (truncated)...]
+2022-12-16 10:33:22.478  WARN 7960 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.InvalidDataAccessResourceUsageException: could not execute statement; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not execute statement]
+2022-12-16 10:33:22.479 DEBUG 7960 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2022-12-16 10:33:53.729 DEBUG 7960 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/order-manager/v1/order/create", parameters={}
+2022-12-16 10:33:53.730 DEBUG 7960 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.order.manager.controller.OrderManagerController#createOrder(OrderRequest)
+2022-12-16 10:33:53.732 DEBUG 7960 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.order.manager.model.order.request.OrderRequest@4451b89e]
+2022-12-16 10:33:53.733  INFO 7960 --- [http-nio-8080-exec-2] c.o.m.service.impl.OrderServiceImpl      : ======= > Init SaveOrder
+2022-12-16 10:34:00.864  WARN 7960 --- [http-nio-8080-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 42P01
+2022-12-16 10:34:00.867 ERROR 7960 --- [http-nio-8080-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: relation "orders_id_seq" does not exist
+  Posição: 16
+2022-12-16 10:34:07.154 DEBUG 7960 --- [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.order.manager.exceptions.AppExceptionHandler#handleThrowable(Throwable, WebRequest)
+2022-12-16 10:34:07.158 DEBUG 7960 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-12-16 10:34:07.159 DEBUG 7960 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionHandleResponse(apiVersion=0.0.1-SNAPSHOT, error=ErrorHandle(httpCode=400, errorCode=API-add (truncated)...]
+2022-12-16 10:34:07.163  WARN 7960 --- [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.InvalidDataAccessResourceUsageException: could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet]
+2022-12-16 10:34:07.165 DEBUG 7960 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2022-12-16 10:34:24.630 DEBUG 7960 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/order-manager/v1/order/create", parameters={}
+2022-12-16 10:34:24.631 DEBUG 7960 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.order.manager.controller.OrderManagerController#createOrder(OrderRequest)
+2022-12-16 10:34:24.633 DEBUG 7960 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.order.manager.model.order.request.OrderRequest@f88c01]
+2022-12-16 10:34:24.634  INFO 7960 --- [http-nio-8080-exec-3] c.o.m.service.impl.OrderServiceImpl      : ======= > Init SaveOrder
+2022-12-16 10:34:50.644  WARN 7960 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=51s467ms386µs100ns).
+2022-12-16 10:35:34.966  WARN 7960 --- [http-nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 42P01
+2022-12-16 10:35:34.969 ERROR 7960 --- [http-nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: relation "orders_id_seq" does not exist
+  Posição: 16
+2022-12-16 10:35:45.692 DEBUG 7960 --- [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.order.manager.exceptions.AppExceptionHandler#handleThrowable(Throwable, WebRequest)
+2022-12-16 10:35:45.694 DEBUG 7960 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-12-16 10:35:45.696 DEBUG 7960 --- [http-nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ExceptionHandleResponse(apiVersion=0.0.1-SNAPSHOT, error=ErrorHandle(httpCode=400, errorCode=API-add (truncated)...]
+2022-12-16 10:35:45.698  WARN 7960 --- [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.InvalidDataAccessResourceUsageException: could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet]
+2022-12-16 10:35:45.701 DEBUG 7960 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2022-12-16 10:43:14.003 DEBUG 7960 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/order-manager/v1/order/create", parameters={}
+2022-12-16 10:43:14.004 DEBUG 7960 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.order.manager.controller.OrderManagerController#createOrder(OrderRequest)
+2022-12-16 10:43:14.006 DEBUG 7960 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.order.manager.model.order.request.OrderRequest@671bb013]
+2022-12-16 10:43:14.006  INFO 7960 --- [http-nio-8080-exec-4] c.o.m.service.impl.OrderServiceImpl      : ======= > Init SaveOrder
+2022-12-16 10:43:32.463  INFO 7960 --- [http-nio-8080-exec-4] c.o.m.service.impl.OrderServiceImpl      : ======= > Stock Movements ====== 
+2022-12-16 10:43:32.465  INFO 7960 --- [http-nio-8080-exec-4] c.o.m.service.impl.OrderServiceImpl      : ======= > Atual: Martelo de Thor: 10
+2022-12-16 10:43:47.257  INFO 7960 --- [http-nio-8080-exec-4] c.o.m.service.impl.OrderServiceImpl      : ======= > Atualizado: Martelo de Thor: 8
+2022-12-16 10:44:02.659  INFO 7960 --- [http-nio-8080-exec-4] c.o.m.service.impl.OrderServiceImpl      : ======= > Enviando email: leonardobarrosbhz@gmail.com Order ==> 3
+2022-12-16 10:44:09.504  INFO 7960 --- [http-nio-8080-exec-4] c.o.m.service.impl.OrderServiceImpl      : ======= > Order Completed 3
+2022-12-16 10:44:09.505  INFO 7960 --- [http-nio-8080-exec-4] c.o.m.service.impl.OrderServiceImpl      : ======= > End SaveOrder ======
+2022-12-16 10:44:12.939 DEBUG 7960 --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-12-16 10:44:12.942 DEBUG 7960 --- [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.order.manager.model.dto.OrderDTO@1c5173ab]
+2022-12-16 10:44:12.980 DEBUG 7960 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-12-16 11:04:39.211  INFO 11904 --- [restartedMain] c.order.manager.OrderManagerApplication  : Starting OrderManagerApplication using Java 1.8.0_202 on NCC-1701 with PID 11904 (C:\estudo\order-manager\target\classes started by leona in C:\estudo\order-manager)
+2022-12-16 11:04:39.213  INFO 11904 --- [restartedMain] c.order.manager.OrderManagerApplication  : No active profile set, falling back to 1 default profile: "default"
+2022-12-16 11:04:39.309  INFO 11904 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-16 11:04:39.309  INFO 11904 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-16 11:04:40.308  INFO 11904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-16 11:04:40.458  INFO 11904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 135 ms. Found 4 JPA repository interfaces.
+2022-12-16 11:04:42.561  INFO 11904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-12-16 11:04:42.823  INFO 11904 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3513 ms
+2022-12-16 11:04:43.000  INFO 11904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-16 11:04:44.370  INFO 11904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-16 11:04:44.568  INFO 11904 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-16 11:04:44.684  INFO 11904 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-16 11:04:44.988  INFO 11904 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-16 11:04:45.182  INFO 11904 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-16 11:04:46.397  INFO 11904 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-16 11:04:46.414  INFO 11904 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-16 11:04:47.516  WARN 11904 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-16 11:04:47.706 DEBUG 11904 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2022-12-16 11:04:47.892 DEBUG 11904 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 26 mappings in 'requestMappingHandlerMapping'
+2022-12-16 11:04:48.975 DEBUG 11904 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2022-12-16 11:04:48.989 DEBUG 11904 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2022-12-16 11:04:49.228  INFO 11904 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-16 11:04:49.273  INFO 11904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/order-manager'
+2022-12-16 11:04:49.287  INFO 11904 --- [restartedMain] c.order.manager.OrderManagerApplication  : Started OrderManagerApplication in 10.897 seconds (JVM running for 12.051)
+2022-12-16 11:04:49.713  INFO 11904 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-16 11:04:49.740  INFO 11904 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-12-16 11:04:50.164  INFO 11904 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-12-16 11:05:17.624  INFO 14380 --- [restartedMain] c.order.manager.OrderManagerApplication  : Starting OrderManagerApplication using Java 1.8.0_202 on NCC-1701 with PID 14380 (C:\estudo\order-manager\target\classes started by leona in C:\estudo\order-manager)
+2022-12-16 11:05:17.626  INFO 14380 --- [restartedMain] c.order.manager.OrderManagerApplication  : No active profile set, falling back to 1 default profile: "default"
+2022-12-16 11:05:17.712  INFO 14380 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-16 11:05:17.712  INFO 14380 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-16 11:05:18.633  INFO 14380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-16 11:05:18.802  INFO 14380 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 152 ms. Found 4 JPA repository interfaces.
+2022-12-16 11:05:20.627  INFO 14380 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-12-16 11:05:20.644  INFO 14380 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-16 11:05:20.644  INFO 14380 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-12-16 11:05:20.842  INFO 14380 --- [restartedMain] o.a.c.c.C.[.[.[/order-manager]           : Initializing Spring embedded WebApplicationContext
+2022-12-16 11:05:20.842  INFO 14380 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3129 ms
+2022-12-16 11:05:21.012  INFO 14380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-16 11:05:22.369  INFO 14380 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-16 11:05:22.490  INFO 14380 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-16 11:05:22.578  INFO 14380 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-12-16 11:05:22.805  INFO 14380 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-16 11:05:23.003  INFO 14380 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-12-16 11:05:23.991  INFO 14380 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-16 11:05:24.008  INFO 14380 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-16 11:05:25.126  WARN 14380 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-16 11:05:25.323 DEBUG 14380 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2022-12-16 11:05:25.483 DEBUG 14380 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 26 mappings in 'requestMappingHandlerMapping'
+2022-12-16 11:05:26.539 DEBUG 14380 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2022-12-16 11:05:26.553 DEBUG 14380 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2022-12-16 11:05:26.783  INFO 14380 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-16 11:05:26.833  INFO 14380 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/order-manager'
+2022-12-16 11:05:26.847  INFO 14380 --- [restartedMain] c.order.manager.OrderManagerApplication  : Started OrderManagerApplication in 9.956 seconds (JVM running for 10.996)

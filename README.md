@@ -14,6 +14,7 @@ API Rest contendo operações e fluxo para gerenciar pedidos.
 - SpringData      -> https://spring.io/projects/spring-data
 - Lombok          -> https://projectlombok.org/
 - Hibernate       -> https://hibernate.org/
+- Heroku-Clound   -> https://www.heroku.com/
 
 
 
@@ -71,7 +72,7 @@ API Rest contendo operações e fluxo para gerenciar pedidos.
  -  Heroku (Cloud) 
     https://order-manager-ms.herokuapp.com/order-manager/swagger-ui/index.html#/
   
-## Executar projeto (Maven)
+## Executar projeto via Maven
 1 - Entrar na pasta do projeto
 
 2 - mvn clean package
@@ -85,10 +86,13 @@ API Rest contendo operações e fluxo para gerenciar pedidos.
 | Versão  |   Descrição |
 | ------------| ---------|
 |  1.0.0  |  API - Item Manager     |
-|  1.1.0  |  API - User Manager     |Cria um item  |
-|  1.2.0  |  API - Order Manager     |C
-|  1.3.0  |  API - Stock Manager     |C
+|  1.1.0  |  API - User Manager     |
+|  1.2.0  |  API - Order Manager     |
+|  1.3.0  |  API - Stock Manager     |
 
+
+##Script BD PostgreSQL
+File: scriptDB.DLL
 
 
 

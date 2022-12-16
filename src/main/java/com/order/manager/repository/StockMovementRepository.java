@@ -1,9 +1,12 @@
 package com.order.manager.repository;
 
+import com.order.manager.model.entity.Item;
 import com.order.manager.model.entity.StockMovement;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface StockMovementRepository extends JpaRepository<StockMovement, Long> {
+
+    StockMovement findByItem(Item item);
 }

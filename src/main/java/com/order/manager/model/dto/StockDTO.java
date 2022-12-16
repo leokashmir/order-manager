@@ -18,7 +18,7 @@ public class StockDTO {
     @NotBlank(message = "Campo 'item' deve ser Preenchido.")
     private Item item;
     @NotNull(message = "Campo 'quantity' deve ser Preenchido.")
-    private int quantity;
+    private Long quantity;
 
     private LocalDate creationDate;
 }

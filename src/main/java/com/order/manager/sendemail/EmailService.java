@@ -12,13 +12,12 @@ public class EmailService {
     private JavaMailSender javaMailSender;
 
 
-    public void sendEmail() {
+    public void sendEmail(String email, String text, String subject) {
 
         SimpleMailMessage msg = new SimpleMailMessage();
-        msg.setFrom("leonardobarrosbhz@gmail.com");
         msg.setTo("leonardobarros_bhz@hotmail.com");
-        msg.setSubject("Testing from Spring Boot");
-        msg.setText("Hello World \n Spring Boot Email");
+        msg.setSubject(subject);
+        msg.setText(text);
 
         javaMailSender.send(msg);
 
