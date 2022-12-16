@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 import java.util.Set;
 
@@ -20,16 +21,17 @@ public class Order {
     private Long id;
 
     @Column(name = "quantity")
-    private Long quantity;
+    private int quantity;
 
     @Column(name = "creationDate")
     private LocalDate creationDate;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "id_item")
-    private Set<Item> items;
+    private Item item;
 
     @ManyToOne
     @JoinColumn(name = "id_user")
+    @NotBlank(message = "Campo 'user' deve ser Preenchido.")
     private User user;
 }
