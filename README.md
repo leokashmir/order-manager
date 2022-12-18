@@ -14,7 +14,7 @@ API Rest contendo operações e fluxo para gerenciar pedidos.
 - SpringData      -> https://spring.io/projects/spring-data
 - Lombok          -> https://projectlombok.org/
 - Hibernate       -> https://hibernate.org/
-- Heroku-Clound   -> https://www.heroku.com/
+- Heroku-Cloud   -> https://www.heroku.com/
 
 
 
